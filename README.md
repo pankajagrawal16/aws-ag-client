@@ -1,7 +1,6 @@
 # aws-ag-client
 
-This Java repo demostrates how to make IAM authenticated call to AWS api gateway endpoint. It is setup as a maven project currently and use AWS java SDK 
-under the hood to provide a simple wrapper classes to make these calls. 
+This Java repo demonstrates how to make IAM authenticated call to AWS api gateway endpoint. It is setup as a maven project currently and uses the AWS java SDK under the hood to provide simple wrapper classes to make these calls. 
 
 # How to use?
 
