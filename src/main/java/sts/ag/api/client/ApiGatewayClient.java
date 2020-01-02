@@ -14,6 +14,8 @@ import com.amazonaws.transform.JsonErrorUnmarshaller;
 import com.amazonaws.transform.JsonUnmarshallerContext;
 import com.amazonaws.transform.Unmarshaller;
 import com.fasterxml.jackson.databind.JsonNode;
+import sts.ag.api.model.Request;
+import sts.ag.api.model.Response;
 
 import java.io.InputStream;
 import java.net.URI;
@@ -30,7 +32,7 @@ public class ApiGatewayClient extends AmazonWebServiceClient {
     private final AWSCredentialsProvider credentials;
     private final AWS4Signer signer;
 
-    ApiGatewayClient(final ClientConfiguration clientConfiguration,
+    public ApiGatewayClient(final ClientConfiguration clientConfiguration,
                      final URI endpoint,
                      final AWSCredentialsProvider credentials) {
         super(clientConfiguration);
@@ -58,7 +60,7 @@ public class ApiGatewayClient extends AmazonWebServiceClient {
                 Collections.singletonList(defaultErrorUnmarshaller), null);
     }
 
-    Response execute(final Request request) {
+    public Response execute(final Request request) {
         return execute(request.getHttpMethod(), request.getResourcePath(), request.getHeaders(), request.getParameters(), request.getBody());
     }
 

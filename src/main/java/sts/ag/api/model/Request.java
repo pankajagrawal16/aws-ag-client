@@ -1,4 +1,4 @@
-package sts.ag.api.client;
+package sts.ag.api.model;
 
 import com.amazonaws.http.HttpMethodName;
 
@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
-class Request {
+public class Request {
 
     private final HttpMethodName httpMethod;
     private final String resourcePath;
@@ -26,23 +26,23 @@ class Request {
         this.parameters = parameters;
     }
 
-    HttpMethodName getHttpMethod() {
+    public HttpMethodName getHttpMethod() {
         return httpMethod;
     }
 
-    String getResourcePath() {
+    public String getResourcePath() {
         return resourcePath;
     }
 
-    InputStream getBody() {
+    public InputStream getBody() {
         return body;
     }
 
-    Map<String, String> getHeaders() {
+    public Map<String, String> getHeaders() {
         return headers;
     }
 
-    Map<String, List<String>> getParameters() {
+    public Map<String, List<String>> getParameters() {
         return parameters;
     }
 }

@@ -1,31 +1,32 @@
-package sts.ag.api.client;
+package sts.ag.api.model;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentialsProvider;
+import sts.ag.api.client.ApiGatewayClient;
 
 import java.net.URI;
 
-class ClientBuilder {
+public class ClientBuilder {
     private URI endpoint;
     private AWSCredentialsProvider credentials;
     private ClientConfiguration clientConfiguration;
 
-    ClientBuilder withEndpoint(URI endpoint) {
+    public ClientBuilder withEndpoint(URI endpoint) {
         this.endpoint = endpoint;
         return this;
     }
 
-    ClientBuilder withClientConfiguration(ClientConfiguration clientConfiguration) {
+    public ClientBuilder withClientConfiguration(ClientConfiguration clientConfiguration) {
         this.clientConfiguration = clientConfiguration;
         return this;
     }
 
-    ClientBuilder withCredentials(AWSCredentialsProvider credentials) {
+    public ClientBuilder withCredentials(AWSCredentialsProvider credentials) {
         this.credentials = credentials;
         return this;
     }
 
-    ApiGatewayClient build() {
+    public ApiGatewayClient build() {
         return new ApiGatewayClient(clientConfiguration, endpoint, credentials);
     }
 

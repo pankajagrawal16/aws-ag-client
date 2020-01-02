@@ -1,4 +1,4 @@
-package sts.ag.api.client;
+package sts.ag.api;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -7,6 +7,12 @@ import com.amazonaws.auth.STSAssumeRoleSessionCredentialsProvider;
 import com.amazonaws.http.HttpMethodName;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenService;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder;
+import sts.ag.api.client.ApiGatewayClient;
+import sts.ag.api.client.ApiGatewayException;
+import sts.ag.api.model.ClientBuilder;
+import sts.ag.api.model.Request;
+import sts.ag.api.model.RequestBuilder;
+import sts.ag.api.model.Response;
 
 import java.net.URI;
 import java.util.Map;
@@ -17,8 +23,8 @@ public class ApiGateWayMain {
 
     private static final String ACCESS_KEY = "";
     private static final String SECRET_KEY = "";
-    private static final String ENDPOINT = "https://yc9n5wd8hf.execute-api.us-east-1.amazonaws.com";
-    private static final String ROLE_ARN = "arn:aws:iam::906126917321:role/accessApiGateway";
+    private static final String ENDPOINT = "";
+    private static final String ROLE_ARN = "";
 
     public static void main(String[] args) {
         ApiGatewayClient client = apiGatewayClient(URI.create(ENDPOINT));

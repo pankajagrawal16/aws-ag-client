@@ -65,4 +65,4 @@ under the hood to provide a simple warpper classes to make these calls.
    - In case of non 2XX response from the API call `ApiGatewayException` is thrown. Clients should handle this exception as per the needed use case.
    
    
-- Sample code as described above also resides in main file [here](https://github.com/pankajagrawal16/aws-ag-client/blob/master/src/main/java/sts/ag/api/client/ApiGateWayMain.java)   
+- Sample code as described above also resides in main file [here](https://github.com/pankajagrawal16/aws-ag-client/blob/master/src/main/java/sts/ag/api/ApiGateWayMain.java)

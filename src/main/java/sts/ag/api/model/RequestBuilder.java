@@ -1,4 +1,4 @@
-package sts.ag.api.client;
+package sts.ag.api.model;
 
 import com.amazonaws.http.HttpMethodName;
 
@@ -13,12 +13,12 @@ public class RequestBuilder {
     private Map<String, String> headers;
     private Map<String, List<String>> parameters;
 
-    RequestBuilder withHttpMethod(HttpMethodName name) {
+    public RequestBuilder withHttpMethod(HttpMethodName name) {
         httpMethod = name;
         return this;
     }
 
-    RequestBuilder withResourcePath(String path) {
+    public RequestBuilder withResourcePath(String path) {
         resourcePath = path;
         return this;
     }
@@ -28,7 +28,7 @@ public class RequestBuilder {
         return this;
     }
 
-    RequestBuilder withHeaders(Map<String, String> headers) {
+    public RequestBuilder withHeaders(Map<String, String> headers) {
         this.headers = headers;
         return this;
     }
@@ -38,7 +38,7 @@ public class RequestBuilder {
         return this;
     }
 
-    Request build() {
+    public  Request build() {
         return new Request(httpMethod, resourcePath, body, headers, parameters);
     }
 }

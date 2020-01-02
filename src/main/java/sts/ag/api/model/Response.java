@@ -1,15 +1,15 @@
-package sts.ag.api.client;
+package sts.ag.api.model;
 
 import com.amazonaws.http.HttpResponse;
 import com.amazonaws.util.IOUtils;
 
 import java.io.IOException;
 
-class Response {
+public class Response {
     private final HttpResponse httpResponse;
     private final String body;
 
-    Response(final HttpResponse httpResponse) throws IOException {
+    public Response(final HttpResponse httpResponse) throws IOException {
         this.httpResponse = httpResponse;
         if (httpResponse.getContent() != null) {
             this.body = IOUtils.toString(httpResponse.getContent());
@@ -18,11 +18,11 @@ class Response {
         }
     }
 
-    HttpResponse getHttpResponse() {
+    public HttpResponse getHttpResponse() {
         return httpResponse;
     }
 
-    String getBody() {
+    public String getBody() {
         return body;
     }
 }
