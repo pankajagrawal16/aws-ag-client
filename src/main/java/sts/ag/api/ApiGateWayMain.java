@@ -44,8 +44,7 @@ public class ApiGateWayMain {
             System.out.println("Status: " + response.getHttpResponse().getStatusCode());
 
         } catch (ApiGatewayException e) {
-            System.out.println(String.format("Exception with message %s and status code %s",
-                    e.getMessage(), e.getStatusCode()));
+            System.out.println(String.format("Exception with message %s and status code %s", e.getMessage(), e.getStatusCode()));
         }
     }
 
