@@ -25,6 +25,7 @@ public class ApiGateWayMain {
     private static final String SECRET_KEY = "";
     private static final String ENDPOINT = "";
     private static final String ROLE_ARN = "";
+    private static final String PATH = "/production/search/abv";;
 
     public static void main(String[] args) {
         ApiGatewayClient client = apiGatewayClient(URI.create(ENDPOINT));
@@ -34,7 +35,7 @@ public class ApiGateWayMain {
             Request request = new RequestBuilder()
                     .withHttpMethod(HttpMethodName.GET)
                     .withHeaders(Map.of("Content-Type", "application/json"))
-                    .withResourcePath("/production/search/abv")
+                    .withResourcePath(PATH)
                     .build();
 
             Response response = client.execute(request);

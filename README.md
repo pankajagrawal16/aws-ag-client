@@ -1,7 +1,7 @@
 # aws-ag-client
 
 This Java repo demostrates how to make IAM authenticated call to AWS api gateway endpoint. It is setup as a maven project currently and use AWS java SDK 
-under the hood to provide a simple warpper classes to make these calls. 
+under the hood to provide a simple wrapper classes to make these calls. 
 
 # How to use?
 
@@ -66,3 +66,28 @@ under the hood to provide a simple warpper classes to make these calls.
    
    
 - Sample code as described above also resides in main file [here](https://github.com/pankajagrawal16/aws-ag-client/blob/master/src/main/java/sts/ag/api/ApiGateWayMain.java)
+
+# Want to make a test run before using it?
+
+- Prerequisites installations:
+    - [Maven](https://maven.`apache.org/install.html)
+    - [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+
+  if you use [brew](https://brew.sh/) to manage packages, use below commands to install maven and java 11:
+
+    ```
+            brew install maven
+
+            brew tap homebrew/cask-versions
+
+            brew cask install java11
+
+    ````
+
+- Run below command after updating variable [here](https://github.com/pankajagrawal16/aws-ag-client/blob/master/src/main/java/sts/ag/api/ApiGateWayMain.java#L24) with correct values:
+
+    ```
+
+            java -jar  target/ag-client-1.0.jar
+
+    ```
