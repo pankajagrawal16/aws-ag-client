@@ -25,7 +25,7 @@ public class ApiGateWayMain {
     private static final String SECRET_KEY = "";
     private static final String ENDPOINT = "";
     private static final String ROLE_ARN = "";
-    private static final String PATH = "/production/search/abv";;
+    private static final String PATH = "";;
 
     public static void main(String[] args) {
         ApiGatewayClient client = apiGatewayClient(URI.create(ENDPOINT));

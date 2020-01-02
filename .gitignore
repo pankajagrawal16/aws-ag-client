@@ -6,5 +6,5 @@ target
 .settings
 .vscode
 *.iml
-
+dependency-reduced-pom.xml
 
