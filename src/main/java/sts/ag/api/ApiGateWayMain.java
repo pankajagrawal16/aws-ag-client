@@ -21,11 +21,11 @@ import static com.amazonaws.regions.Regions.US_EAST_1;
 
 public class ApiGateWayMain {
 
-    private static final String ACCESS_KEY = "";
-    private static final String SECRET_KEY = "";
-    private static final String ENDPOINT = "";
-    private static final String ROLE_ARN = "";
-    private static final String PATH = "";;
+    private static final String ACCESS_KEY = ""; // e.g. "AKIAXNIETWOCQIIPDGEZ"
+    private static final String SECRET_KEY = ""; // e.g. "6GNNft5N3+f2xIZ/dqPFbo7PxlWJ2+izaUPE4C1b"
+    private static final String ENDPOINT = ""; // e.g. "https://8axkz5pcpe.execute-api.eu-west-1.amazonaws.com"
+    private static final String ROLE_ARN = ""; // e.g. "arn:aws:iam::1234567890:role/your-role
+    private static final String PATH = "";; // e.g. "/prod/api/v2/web/authenticate"
 
     public static void main(String[] args) {
         ApiGatewayClient client = apiGatewayClient(URI.create(ENDPOINT));
