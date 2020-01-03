@@ -20,7 +20,9 @@ import java.util.Map;
 import static com.amazonaws.regions.Regions.US_EAST_1;
 
 public class ApiGateWayMain {
-
+    
+    // NOTE: In production-like environments, the ACCESS_KEY and SECRET_KEY should be read from
+    // a secure storage utility, and not be hardcoded in-line like this:
     private static final String ACCESS_KEY = ""; // e.g. "AKIAXNIETWOCQIIPDGEZ"
     private static final String SECRET_KEY = ""; // e.g. "6GNNft5N3+f2xIZ/dqPFbo7PxlWJ2+izaUPE4C1b"
     private static final String ENDPOINT = ""; // e.g. "https://8axkz5pcpe.execute-api.eu-west-1.amazonaws.com"
