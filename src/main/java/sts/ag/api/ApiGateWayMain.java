@@ -5,6 +5,7 @@ import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.STSAssumeRoleSessionCredentialsProvider;
 import com.amazonaws.http.HttpMethodName;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenService;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder;
 import sts.ag.api.client.ApiGatewayClient;
@@ -20,7 +21,7 @@ import java.util.Map;
 import static com.amazonaws.regions.Regions.US_EAST_1;
 
 public class ApiGateWayMain {
-    
+
     // NOTE: In production-like environments, the ACCESS_KEY and SECRET_KEY should be read from
     // a secure storage utility, and not be hardcoded in-line like this:
     private static final String ACCESS_KEY = ""; // e.g. "AKIAXNIETWOCQIIPDGEZ"
@@ -28,6 +29,8 @@ public class ApiGateWayMain {
     private static final String ENDPOINT = ""; // e.g. "https://8axkz5pcpe.execute-api.eu-west-1.amazonaws.com"
     private static final String ROLE_ARN = ""; // e.g. "arn:aws:iam::1234567890:role/your-role
     private static final String PATH = "";; // e.g. "/prod/api/v2/web/authenticate"
+    private static final String SESSION_NAME = ""; // e.g. "User ABC"
+    private static final String REGION = "eu-west-1"; // AWS region, e.g. "eu-west-1"
 
     public static void main(String[] args) {
         ApiGatewayClient client = apiGatewayClient(URI.create(ENDPOINT));
@@ -52,20 +55,23 @@ public class ApiGateWayMain {
     }
 
     private static ApiGatewayClient apiGatewayClient(final URI endpoint) {
+        Regions region = Regions.fromName(REGION);
+
         return new ClientBuilder()
                 .withClientConfiguration(new ClientConfiguration())
-                .withCredentials(new STSAssumeRoleSessionCredentialsProvider.Builder(ROLE_ARN, "readable-session-name")
-                        .withStsClient(stsClient())
+                .withCredentials(new STSAssumeRoleSessionCredentialsProvider.Builder(ROLE_ARN, SESSION_NAME)
+                        .withStsClient(stsClient(region))
                         .withRoleSessionDurationSeconds(3600)
                         .build())
                 .withEndpoint(endpoint)
+                .withRegion(region)
                 .build();
     }
 
-    private static AWSSecurityTokenService stsClient() {
+    private static AWSSecurityTokenService stsClient(Regions region) {
         return AWSSecurityTokenServiceClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY)))
-                .withRegion(US_EAST_1)
+                .withRegion(region)
                 .build();
     }
 }

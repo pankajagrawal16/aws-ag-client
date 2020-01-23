@@ -10,6 +10,7 @@ import com.amazonaws.http.*;
 import com.amazonaws.internal.auth.DefaultSignerProvider;
 import com.amazonaws.protocol.json.JsonOperationMetadata;
 import com.amazonaws.protocol.json.SdkStructuredPlainJsonFactory;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.transform.JsonErrorUnmarshaller;
 import com.amazonaws.transform.JsonUnmarshallerContext;
 import com.amazonaws.transform.Unmarshaller;
@@ -33,12 +34,14 @@ public class ApiGatewayClient extends AmazonWebServiceClient {
     private final AWS4Signer signer;
 
     public ApiGatewayClient(final ClientConfiguration clientConfiguration,
-                     final URI endpoint,
-                     final AWSCredentialsProvider credentials) {
+                            final URI endpoint,
+                            final AWSCredentialsProvider credentials,
+                            final Regions region) {
         super(clientConfiguration);
         this.credentials = credentials;
         this.signer = new AWS4Signer();
         this.signer.setServiceName(API_GATEWAY_SERVICE_NAME);
+        this.signer.setRegionName(region.getName());
         this.endpoint = endpoint;
 
         final JsonOperationMetadata metadata = new JsonOperationMetadata()
