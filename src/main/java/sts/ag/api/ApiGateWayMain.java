@@ -31,7 +31,7 @@ public class ApiGateWayMain {
     private static final String PATH = "";; // e.g. "/prod/api/v2/web/authenticate"
     private static final String SESSION_NAME = ""; // e.g. "User ABC"
     private static final String REGION = "eu-west-1"; // AWS region, e.g. "eu-west-1"
-
+ 
     public static void main(String[] args) {
         ApiGatewayClient client = apiGatewayClient(URI.create(ENDPOINT));
 
